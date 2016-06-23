@@ -1,0 +1,60 @@
+.drawingResultsBox section {
+  margin-bottom: 36px;
+}
+
+.drawingResultsBox section:after {
+  content: '';
+  clear: both;
+  display: block;
+}
+
+.numbers_container {
+  margin-bottom: 6px;
+}
+
+.balls, .extra-balls {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  position: relative;
+  color: #535353;
+  font-family: Arial, sans-serif;
+  font-weight: normal;
+}
+
+.euroJackpot .balls li, .euroJackpot .extra-balls li {
+  border-color: #ffce34;
+}
+/* line 137, ../sass/framework/_lottonumbers.scss */
+.euroJackpot .balls li.extra,
+.euroJackpot .balls .all li.button.toggle,
+.all .euroJackpot .balls li.button.toggle, .euroJackpot .extra-balls li.extra,
+.euroJackpot .extra-balls .all li.button.toggle,
+.all .euroJackpot .extra-balls li.button.toggle {
+  border-color: #815422;
+}
+
+.results.balls li {
+  border-color: #CCCCCC;
+}
+
+.balls li, .extra-balls li {
+  background: #fff;
+  display: inline-block;
+  border-radius: 30px;
+  width: 30px;
+  height: 30px;
+  line-height: 26px;
+  padding: 0;
+  border: 2px solid #CCCCCC;
+  text-align: center;
+  font-size: 16px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  position: relative;
+  color: #535353;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

@@ -1,0 +1,13 @@
+{
+  "name": "lottoNumbers",
+  "version": "0.1.0",
+  "devDependencies": {
+    "bootstrap": "^3.3.6",
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "jquery": "^2.1.0",
+    "jquery.loadtemplate": "^1.5.0",
+    "require": "^2.4.20"
+  }
+}
