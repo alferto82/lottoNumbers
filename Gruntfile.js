@@ -1,11 +1,11 @@
-module.exports = function(grunt) {
+module.exports = function(grunt) {    
     grunt.initConfig({
+        clean: ["./public/"],
         jshint: {
             files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
             options: {
-                globals: {
-                    jQuery: true
-                }
+                esnext: true,
+                jquery: true
             }
         },
         copy: {
@@ -17,7 +17,8 @@ module.exports = function(grunt) {
                 filter: 'isFile',
                 src: [
                     './bootstrap/dist/js/bootstrap.min.js',
-                    './jquery/dist/jquery.min.js'
+                    './jquery/dist/jquery.min.js',
+                    './jquery.loadtemplate/jquery-loadTemplate/jquery.loadTemplate-1.5.0.min.js'
                 ]
             },
             css: {
@@ -31,10 +32,26 @@ module.exports = function(grunt) {
                     './bootstrap/dist/css/bootstrap-theme.css'
                 ]
             }
+        },
+        '6to5': {
+            options: {
+                modules: 'common'
+            },
+
+            build: {
+                files: [{
+                    expand: true,
+                    cwd: './src/js',
+                    src: ['**/*.js'],
+                    dest: './public/js/',
+                }],
+            }
         }
     });
 
-    grunt.registerTask('default', ['jshint', 'copy']);
+    grunt.registerTask('default', ['clean', 'jshint', 'copy', '6to5']);
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-6to5');
+    grunt.loadNpmTasks('grunt-contrib-clean');
 };

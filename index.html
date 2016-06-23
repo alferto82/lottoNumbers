@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="public/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="styles.css" rel="stylesheet" media="screen">
+    <link href="src/css/styles.css" rel="stylesheet" media="screen">
   </head>
 <body>
     <div class="container">
@@ -17,18 +17,32 @@
 
         <div class="tab-content">
             <div id="last" class="tab-pane fade in active">
-                <h2>EuroJackpot Results For Friday 17 Jun 2016</h2>
+                <h3 id="title">
+                    <script type="text/html" id="dateTemplate">
+                        <span data-content="dateStr"></span>
+                    </script>
+                </h3>
                 <hr/>
                 <div class="drawingResultsBox">
                 <section class="numbers euroJackpot">
 
                 
                     <div class="numbers_container">
-                        
+                        <script type="text/html" id="ballNumbersTemplate">
+                            <ul class="balls results">
+                                <li data-content="ball1"></li>
+                                <li data-content="ball2"></li>
+                                <li data-content="ball3"></li>
+                                <li data-content="ball4"></li>
+                                <li data-content="ball5"></li>
+                                <li data-content="ball6" class="extra"></li>
+                                <li data-content="ball7" class="extra"></li>
+                            </ul>
+                        </script>
                     </div>
 
                     <div style="position: relative;">
-                        <table class="table table-striped">
+                        <table id="tableLastPrices" class="table table-striped">
                             <thead>
                                 <tr>
                                     <th>Tier</th>
@@ -38,78 +52,80 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Tier I</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>0x</td>
-                                    <td>€28,000,000.00</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier II</td>
-                                    <td>5 Numbers, 1 Euronumbers</td>
-                                    <td>3x</td>
-                                    <td>€472,273.80</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier III</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier IV</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier V</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier VI</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier VII</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier VIII</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier IX</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier X</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier XI</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
-                                <tr>
-                                    <td>Tier XII</td>
-                                    <td>5 Numbers, 2 Euronumbers</td>
-                                    <td>30x</td>
-                                    <td>€107,457.10</td>
-                                </tr>
+                                <script type="text/html" id="tablePricesTemplate">
+                                    <tr>
+                                        <td>Tier I</td>
+                                        <td>5 Numbers, 2 Euronumbers</td>
+                                        <td><small data-content="rank1.winners"></small></td>
+                                        <td><strong data-content="rank1.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier II</td>
+                                        <td>5 Numbers, 1 Euronumbers</td>
+                                        <td><small data-content="rank2.winners"></small></td>
+                                        <td><strong data-content="rank2.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier III</td>
+                                        <td>5 Numbers, 0 Euronumbers</td>
+                                        <td><small data-content="rank3.winners"></small></td>
+                                        <td><strong data-content="rank3.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier IV</td>
+                                        <td>4 Numbers, 2 Euronumbers</td>
+                                        <td><small data-content="rank4.winners"></small></td>
+                                        <td><strong data-content="rank4.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier V</td>
+                                        <td>4 Numbers, 1 Euronumbers</td>
+                                        <td><small data-content="rank5.winners"></small></td>
+                                        <td><strong data-content="rank5.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier VI</td>
+                                        <td>4 Numbers, 0 Euronumbers</td>
+                                        <td><small data-content="rank6.winners"></small></td>
+                                        <td><strong data-content="rank6.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier VII</td>
+                                        <td>3 Numbers, 2 Euronumbers</td>
+                                        <td><small data-content="rank7.winners"></small></td>
+                                        <td><strong data-content="rank7.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier VIII</td>
+                                        <td>2 Numbers, 2 Euronumbers</td>
+                                        <td><small data-content="rank8.winners"></small></td>
+                                        <td><strong data-content="rank8.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier IX</td>
+                                        <td>3 Numbers, 1 Euronumbers</td>
+                                        <td><small data-content="rank9.winners"></small></td>
+                                        <td><strong data-content="rank9.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier X</td>
+                                        <td>3 Numbers, 0 Euronumbers</td>
+                                        <td><small data-content="rank10.winners"></small></td>
+                                        <td><strong data-content="rank10.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier XI</td>
+                                        <td>1 Numbers, 2 Euronumbers</td>
+                                        <td><small data-content="rank11.winners"></small></td>
+                                        <td><strong data-content="rank11.prize"></strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tier XII</td>
+                                        <td>2 Numbers, 1 Euronumbers</td>
+                                        <td><small data-content="rank12.winners"></small></td>
+                                        <td><strong data-content="rank12.prize"></strong></td>
+                                    </tr>
+                                </script>
                             </tbody>
                         </table>
                     </div>
@@ -118,15 +134,20 @@
         </div>
 
             <div id="next" class="tab-pane fade">
-                <h3>EuroJackpot Results For Friday 17 Jun 2016</h3>
-                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                <script type="text/html" id="nextTemplate">
+                    <h3 data-content="dateStr"></h3>
+                </script>
             </div>
         </div>
     </div>
     
     <script src="public/js/libs/jquery.min.js"></script>
     <script src="public/js/libs/bootstrap.min.js"></script>
-    <script src="lotto.js"></script>
+    <script src="public/js/libs/jquery.loadTemplate-1.5.0.min.js"></script>
+    <script src="public/js/lotto.js"></script>
+    
+    
+    
     <script>
     $( document ).ready(function() {
         lottoNumbers.draw();
